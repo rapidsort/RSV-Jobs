@@ -39,10 +39,10 @@ class JobsSummary extends React.Component {
     <div className="card-action">
     <Link className="btn pink lighten-1 z-depth-0"  to={'/job/' + job.id}>More Details</Link>
 
-
-    <Link className="btn pink lighten-1 z-depth-0"  to={'/editjob/' + job.id}>Edit Job</Link>
-    <a className="btn pink lighten-1 z-depth-0"  onClick={ ()=>this.props.deleteJob(job.id) }>Delete Job</a>
-
+      {auth.uid==job.authorId ? 
+    <><Link className="btn pink lighten-1 z-depth-0"  to={'/editjob/' + job.id}>Edit Job</Link>
+    <a className="btn pink lighten-1 z-depth-0"  onClick={ ()=>this.props.deleteJob(job.id) }>Delete Job</a></>
+    : null }
 
 
               </div>

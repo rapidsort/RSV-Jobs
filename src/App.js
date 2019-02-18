@@ -17,6 +17,7 @@ import JobsList from './components/jobs/JobsList';
 import JobsDetails from './components/jobs/JobDetails';
 import Dashboard from './components/dashboard/Dashboard';
 import EditJob from './components/jobs/EditJob';
+import JobsPostedByMe from './components/jobs/JobsPostedByMe';
 
 class App extends Component {
   render() {
@@ -39,6 +40,7 @@ class App extends Component {
       <Route path='/jobs' component={JobsList} />
       <Route path='/job/:id' component={JobsDetails} />
       <Route path='/editjob/:id' component={EditJob} />
+      <Route path='/postedbybe' component={JobsPostedByMe} />
       </Switch>
 
       <Footer />

@@ -7,12 +7,19 @@ import {signOut} from '../../store/actions/authActions';
 
 class SignedInLinks extends React.Component {
   render() {
+
+    
     // console.log(this.props.profile);
     return (
       <>
         <li>
           <NavLink to="/jobs">Jobs</NavLink>
         </li>
+        {this.props.profile.userType =='jp' ?  
+        <li>
+          <NavLink to="/postedbybe">Posted by Me</NavLink>
+        </li>
+        : null }
         <li>
           <NavLink to="/createjob">New Job</NavLink>
         </li>
@@ -28,9 +35,16 @@ class SignedInLinks extends React.Component {
     );
   }
 }
+
+const mapStateToProps= (state)=>{
+  return{
+    profile: state.firebase.profile
+  }
+}
+
 const mapDispatchToState = (dispatch)=>{
   return{
     signOut: ()=>dispatch(signOut())
   }
 }
-export default connect(null, mapDispatchToState)(SignedInLinks);
+export default connect(mapStateToProps, mapDispatchToState)(SignedInLinks);

@@ -17,7 +17,7 @@ class Navbar extends Component {
   render() {
     
 
-    const {auth, profile} = this.props;
+    const {auth} = this.props;
 
     return (
       <>
@@ -30,14 +30,14 @@ class Navbar extends Component {
                 <i className="material-icons black-text">menu</i>
               </a>
               <ul className="right hide-on-med-and-down">
-              {auth.uid? <SignedInLinks profile={profile} /> : <SignedOutLinks />}
+              {auth.uid? <SignedInLinks /> : <SignedOutLinks />}
               </ul>
             </div>
           </div>
         </nav>
 
         <ul className="sidenav" id="mobile-demo">
-          {auth.uid? <SignedInLinks profile={profile}  /> : <SignedOutLinks />}
+          {auth.uid? <SignedInLinks /> : <SignedOutLinks />}
         </ul>
       </>
     );
